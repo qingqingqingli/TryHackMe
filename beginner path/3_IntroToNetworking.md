@@ -122,8 +122,18 @@ The OSI model consists of seven layers:
 [![wireshark](https://github.com/qingqingqingli/TryHackMe/blob/main/images/wireshark.png)](https://github.com/qingqingqingli/TryHackMe/blob/main/beginner%20path/3_IntroToNetworking.md)
 
 - There are 5 pieces of information here:
-    - Frame 1 -- this is showing details from the physical layer of the OSI model (Network Interface layer of the TCP/IP model): the size of the packet received in terms of bytes)
-    - Ethernet II -- this is showing details from the Data Link layer of the OSI model (Network Interface layer of the TCP/IP model): the transmission medium (in this case an Ethernet cable), as well as the source and destination MAC addresses of the request.
-    - Internet Protocol Version 4 -- this is showing details from the Network layer of the OSI model (Internet Layer of the TCP/IP model): the source and destination IP addresses of the request.
-    - Transmission Control Protocol -- this is showing details from the Transport layer of the OSI and TCP/IP models: in this case it's telling us that the protocol was TCP, along with a few other things that we're not covering here. 
-    - Hypertext Transfer Protocol -- this is showing details from the Application layer of the OSI and TCP/IP models: specifically, this is a HTTP GET request, which is requesting a web page from a remote server.
+    - Frame 1 -- this is showing details from the ```physical layer``` of the OSI model (Network Interface layer of the TCP/IP model): the size of the packet received in terms of bytes)
+    - Ethernet II -- this is showing details from the ```Data Link layer``` of the OSI model (Network Interface layer of the TCP/IP model): the transmission medium (in this case an Ethernet cable), as well as the source and destination MAC addresses of the request.
+    - Internet Protocol Version 4 -- this is showing details from the ```Network layer``` of the OSI model (Internet Layer of the TCP/IP model): the source and destination IP addresses of the request.
+    - Transmission Control Protocol -- this is showing details from the ```Transport layer``` of the OSI and TCP/IP models: in this case it's telling us that the protocol was TCP, along with a few other things that we're not covering here. 
+    - Hypertext Transfer Protocol -- this is showing details from the ```Application layer``` of the OSI and TCP/IP models: specifically, this is a HTTP GET request, which is requesting a web page from a remote server.
+  
+## [networking tool] Ping
+
+- The ping command is used **when we want to test whether a connection to a remote resource is possible**. Usually this will be a website on the internet, but it could also be for a computer on your home network if you want to check if it's configured correctly. 
+  
+- Ping works using the ```ICMP protocol```, which is one of the slightly less well-known TCP/IP protocols. The ICMP protocol works on the Network layer of the OSI Model, and thus the Internet layer of the TCP/IP model. The basic syntax for ping is ```ping <target>```.
+
+- For ```ping google.com```: the ping command actually returned the IP address for the Google server that it connected to, rather than the URL that you requested. This is a handy secondary application for ping, as it can be **used to determine the IP address of the server hosting a website**. One of the big advantages of ping is that it's pretty much ubiquitous to any network enabled device. All operating systems support it out of the box, and even most embedded devices can use ping!
+
+## [networking tool] Traceroute
