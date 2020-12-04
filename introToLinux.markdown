@@ -1,45 +1,27 @@
-#linux commands
+##linux commands
 
 - su
-
 - ls
-
 - cat
-
 - echo
-
 - touch
-
 - ssh
-
 - &&
-
 - &
-
 - $
-
 - |
-
 - ;
-
 - chmod
-
 - chown
-
     - allow us to change the user and group of any file
     - You can only use chown if you are "above" that other user, meaning that chown is best done with the root(administrator) user.
     - You can also use chown without specifying a group. So you can just use chown user file if you only wanted to change the user but keep the group.
     
 - rm
-
 - mv
-
 - ">"
-
 - ">>"
-
 - cp
-
 - cd && mkdir
 
 - ln 
