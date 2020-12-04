@@ -137,3 +137,42 @@ The OSI model consists of seven layers:
 - For ```ping google.com```: the ping command actually returned the IP address for the Google server that it connected to, rather than the URL that you requested. This is a handy secondary application for ping, as it can be **used to determine the IP address of the server hosting a website**. One of the big advantages of ping is that it's pretty much ubiquitous to any network enabled device. All operating systems support it out of the box, and even most embedded devices can use ping!
 
 ## [networking tool] Traceroute
+
+- The logical follow-up to the ping command is ```traceroute```. The easiest way to understand what traceroute does is to think of your home network. Say, for example, that you have a wireless router. Your phone is connected to it, as is your computer. What happens if you want to send something to your phone from your computer? You can't just send stuff directly to your phone -- not without directly connecting them, so how would the information get across? The request would first be sent to your router which acts as a gateway. The router knows every device that's connected to it, ergo, it knows how to get to your phone. The router then forwards your request on to your phone and facilitates the return connection in the same way. **Traceroute can be used to map the path your request takes as it heads to the target machine**.
+
+- The internet is made up of many, many different servers and end-points, all networked up to each other. This means that, in order to get to the content you actually want, you first need to go through a bunch of other servers. **Traceroute allows you to see each of these connections** -- it allows you to see every intermediate step between your computer and the resource that you requested. The basic syntax for traceroute on Linux is this: ```traceroute <destination>```
+
+- By default, the Windows traceroute utility (tracert) operates using the same ICMP protocol that ping utilises, and the Unix equivalent operates over UDP. This can be altered with switches in both instances.
+
+## [networking tool] WHOIS
+
+- A domain translates into an IP address so that we don't need to remember it. Domains are leased out by companies called Domain Registrars. If you want a domain, you go and register with a registrar, then lease the domain for a certain length of time.
+
+- ```Whois``` essentially allows you to **query who a domain name is registered to**. In Europe personal details are redacted; however, elsewhere you can potentially get a great deal of information from a whois search.
+
+- There is a web version: [whois.com](https://www.whois.com/whois/)
+
+## [networking tool] Dig
+
+- Ever wondered how a URL gets converted into an IP address that your computer can understand? The answer is a TCP/IP protocol called DNS (Domain Name System).
+
+- At the most basic level, DNS allows us to ask a special server to give us the IP address of the website we're trying to access. For example, if we made a request to www.google.com, our computer would first send a request to a special DNS server (which your computer already knows how to find). The server would then go looking for the IP address for Google and send it back to us. Our computer could then send the request to the IP of the Google server.
+
+**Breakdown**
+
+- You make a request to a website. The first thing that your computer does is **check its local cache** to see if it's already got an IP address stored for the website; if it does, great. If not, it goes to the next stage of the process.
+
+- Assuming the address hasn't already been found, your computer will then send a request to what's known as ```a recursive DNS server```. These will automatically be known to the router on your network. Many Internet Service Providers (ISPs) maintain their own recursive servers, but companies such as Google and OpenDNS also control recursive servers. This is how your computer automatically knows where to send the request for information: details for a recursive DNS server are stored in your router. This server will also maintain a cache of results for popular domains; however, if the website you've requested isn't stored in the cache, the recursive server will pass the request on to a root name server.
+
+- There are precisely **13 root name DNS servers** in the world. The root name servers essentially keep track of the DNS servers in the next level down, choosing an appropriate one to redirect your request to. These lower level servers are called ```Top-Level Domain servers```.
+
+- ```Top-Level Domain (TLD)``` servers are split up into extensions. So, for example, if you were searching for tryhackme**.com** your request would be redirected to a TLD server that handled .com domains. If you were searching for bbc**.co.uk** your request would be redirected to a TLD server that handles .co.uk domains. As with root name servers, TLD servers keep track of the next level down: ```Authoritative name servers```. When a TLD server receives your request for information, the server passes it down to an appropriate Authoritative name server.
+
+- ```Authoritative name servers``` are used to store DNS records for domains directly. In other words, **every domain in the world will have its DNS records stored on an Authoritative name server somewhere or another**; they are the source of the information. When your request reaches the authoritative name server for the domain you're querying, it will send the relevant information back to you, allowing your computer to connect to the IP address behind the domain you requested.
+
+- When you visit a website in your web browser this all happens automatically, but we can also do it manually with a tool called ```dig```. Dig allows us to manually query recursive DNS servers of our choice for information about domains: ```dig <domain> @<dns-server-ip>```. It is a very useful tool for network troubleshooting.
+
+- Another interesting piece of information that dig gives us is the ```TTL (Time To Live)``` of the queried DNS record. As mentioned previously, when your computer queries a domain name, it stores the results in its local cache. The TTL of the record tells your computer when to stop considering the record as being valid -- i.e. when it should request the data again, rather than relying on the cached copy.
+
+## resources
+- A good book to read: CISCO Self Study Guide by Steve McQuerry 
