@@ -16,6 +16,8 @@ In practice, it's actually the more compact TCP/IP model that real-world network
 
 The OSI model consists of seven layers:
 
+[![OSI](https://github.com/qingqingqingli/TryHackMe/blob/main/images/OSI-7-layers.jpg)](https://www.imperva.com/learn/application-security/osi-model/)
+
 **Layer 7 -- Application**
 
 - The application layer of the OSI model essentially provides ```networking options``` to programs running on a computer. It works almost exclusively with applications, providing an interface for them to use in order to transmit data. When data is given to the application layer, it is passed down into the presentation layer.
