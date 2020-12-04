@@ -16,7 +16,9 @@ In practice, it's actually the more compact TCP/IP model that real-world network
 
 The OSI model consists of seven layers:
 
-[![OSI](https://github.com/qingqingqingli/TryHackMe/blob/main/images/OSI-7-layers.jpg)](https://www.imperva.com/learn/application-security/osi-model/)
+> [source](https://www.imperva.com/learn/application-security/osi-model/)
+
+[![OSI](https://github.com/qingqingqingli/TryHackMe/blob/main/images/OSI-7-layers.jpg)](https://github.com/qingqingqingli/TryHackMe/blob/main/beginner%20path/3_IntroToNetworking.md)
 
 **Layer 7 -- Application**
 
