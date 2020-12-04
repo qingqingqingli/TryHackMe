@@ -112,3 +112,18 @@ The OSI model consists of seven layers:
 - The TCP/IP model was introduced by the American DoD in 1982 to provide a standard -- something for all of the different manufacturers to follow. This sorted out the inconsistency problems. 
   
 - Later the OSI model was also introduced by the International Organisation for Standardisation (ISO); however, it's mainly used as a more comprehensive guide for learning, as **the TCP/IP model is still the standard upon which modern networking is based**.
+
+## Wireshark
+
+- [Wireshark](https://www.wireshark.org/) is a tool used to capture and analyse packets of data going across a network. 
+
+> An example
+
+[![wireshark](https://github.com/qingqingqingli/TryHackMe/blob/main/images/wireshark.png)](https://github.com/qingqingqingli/TryHackMe/blob/main/beginner%20path/3_IntroToNetworking.md)
+
+- There are 5 pieces of information here:
+    - Frame 1 -- this is showing details from the physical layer of the OSI model (Network Interface layer of the TCP/IP model): the size of the packet received in terms of bytes)
+    - Ethernet II -- this is showing details from the Data Link layer of the OSI model (Network Interface layer of the TCP/IP model): the transmission medium (in this case an Ethernet cable), as well as the source and destination MAC addresses of the request.
+    - Internet Protocol Version 4 -- this is showing details from the Network layer of the OSI model (Internet Layer of the TCP/IP model): the source and destination IP addresses of the request.
+    - Transmission Control Protocol -- this is showing details from the Transport layer of the OSI and TCP/IP models: in this case it's telling us that the protocol was TCP, along with a few other things that we're not covering here. 
+    - Hypertext Transfer Protocol -- this is showing details from the Application layer of the OSI and TCP/IP models: specifically, this is a HTTP GET request, which is requesting a web page from a remote server.
