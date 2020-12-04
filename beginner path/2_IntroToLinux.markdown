@@ -1,4 +1,4 @@
-##linux commands
+## linux commands
 
 - su
 - ls
@@ -69,7 +69,7 @@
     - Every process that is currently running on the system is listed, along with some basic information about the process. Arguably the most interesting part about that list is the second column, the 3-5 digit numbers. Those are known as Process ID's(PID's) and they're how you interact with the processes. 90% of the time you'll likely be wanting to stop these processes and that's done with the ```kill``` command(an apt choice of naming I know). 
     - After running kill, the process no longer shows up! Another useful way to interact with PID's is through the command ```top```. ```top``` shows you what processes are taking up the most system resources, which allows you to manage the resource allocation on your system by killing unneeded processes.
     
-##ssh
+## ssh
 
 SSH is the act of remotely accessing a machine. SSH allows you to run commands interactively on the remote machine. This is done through the use of a program on the target machine, which allows the ssh client to interface with the target host.ln is a weird one, because it has two different main uses. One of those is what's known as "hard linking", which completely duplicates the file, and links the duplicate to the original copy. Meaning What ever is done to the created link, is also done to the original file. 
 
